@@ -13,7 +13,7 @@
 {
   "id": "5349b4ddd2781d08c09890a1",
   "estadoReporte": {
-    "id": "5349b4ddd2781d08c09890b2",
+    "id": "Solicitado",
     "descripcion": "Reporte solicitado",
     "nombre": "Reporte solicitado"
   },
@@ -88,7 +88,7 @@
 }
 ```
 
-## Respuesta exitosa
+### Respuesta exitosa
 
 **Condición** : Si todo está bien y se registró la solicitud en el servidor de la ITF.
 
@@ -99,7 +99,7 @@
 ```json
 {
     "id": "5349b4ddd2781d08c09890a1",
-    "cadenaOriginal": "CAT_MINIMO|201808|Prestadero|2018-09-01",
+    "cadenaOriginal": "5349b4ddd2781d08c09890a1|Solicitado|CAT_MINIMO|201808|Prestadero|2018-09-01",
     "fechaAcuse": "2018-09-01",
     "selloDigital": "5349b4ddd2781d08c09890a15349b4ddd2781d08c09890a15349b4ddd2781d08c09890a1",
     "solicitudReporte":{
@@ -108,7 +108,7 @@
 }
 ```
 
-## Respuesta de error
+### Respuesta de error
 
 **Condición** : Si
 
@@ -118,7 +118,7 @@
 
 **Content** : `{}`
 
-### Or
+#### Or
 
 **Condición** : Si
 
@@ -128,7 +128,7 @@
 
 **Content** : `{}`
 
-### Or
+#### Or
 
 **Condición** : Si
 
@@ -137,3 +137,72 @@
 **Headers** : `{}`
 
 **Content** : `{}`
+
+## GET /api/solicitudReportes/{id}/datos
+## PUT /api/solicitudReportes/{id}/estadoReporte
+**URL** : `/api/solicitudReportes/{id}/estadoReporte`
+
+**Método** : `PUT`
+
+**Autenticación requerida** : Si
+
+**Datos de ejemplo** Todos los campos deben ser enviados.
+
+```json
+{
+  "id": "ReporteAceptado",
+  "descripcion": "Reporte aceptado",
+  "nombre": "Reporte aceptado"
+}
+```
+
+### Respuesta exitosa
+
+**Condición** : Si todo está bien y se actualizó la solicitud en el servidor de la ITF.
+
+**Código** : `200 Ok`
+
+**Contenido de ejemplo**
+
+```json
+{
+    "id": "5349b4ddd2781d08c09890a1",
+    "cadenaOriginal": "5349b4ddd2781d08c09890a1|ReporteAceptado|CAT_MINIMO|201808|Prestadero|2018-09-01",
+    "fechaAcuse": "2018-09-01",
+    "selloDigital": "5349b4ddd2781d08c09890a15349b4ddd2781d08c09890a15349b4ddd2781d08c09890a1",
+    "solicitudReporte":{
+        "id": "5349b4ddd2781d08c09890a1"
+    }
+}
+```
+
+### Respuesta de error
+
+**Condición** : Si
+
+**Código** : `401 Unauthorized`
+
+**Headers** : `{}`
+
+**Content** : `{}`
+
+#### Or
+
+**Condición** : Si
+
+**Código** : `403 Forbidden`
+
+**Headers** : `{}`
+
+**Content** : `{}`
+
+#### Or
+
+**Condición** : Si
+
+**Código** : `404 Not Found`
+
+**Headers** : `{}`
+
+**Content** : `{}`
+## PUT /api/solicitudReportes/{id}/tipoFlujo

@@ -4,11 +4,11 @@
 
 ### Flujo Ideal
 
-* **1.-** La CNBV crea una "SolicituReporte" en el servidor de la ITF ([POST /api/solicitudReportes](api_ITF#post-apisolicitudreportes)) 
+* **1.-** La CNBV crea una "SolicituReporte" en el servidor de la ITF ([POST /api/solicitudReportes](02-Api-ITF#post-apisolicitudreportes)) 
 * **2.-** La ITF actualiza el "EstadoReporte" a "ListoParaConsultarReporte" en el servidor de la CNBV (PUT /api/solicitudReportes/{id}/estadoReporte)
 * **3.-** La CNBV consulta un arreglo de "Dato" de la "SolicitudReporte" en el servidor de la ITF (GET /api/solicitudReportes/{id}/datos)
 * **4.-** La CNBV actualiza el "EstadoReporte" a "ReporteConsultado" en el servidor de la ITF (PUT /api/solicitudReportes/{id}/estadoReporte)
-* **5a.-** Si el reporte tiene errores: La CNBV actualiza el "EstadoReporte" a "ValidadoConErrores" en el servidor de la ITF (PUT /api/solicitudReportes/{id}/estadoReporte). La ITF después de corregir el reporte volverá a ejecutar el punto 2 del proceso 
+* **5a.-** Si el reporte tiene errores: La CNBV actualiza el "EstadoReporte" a "ValidadoConErrores" en el servidor de la ITF ([PUT /api/solicitudReportes/{id}/estadoReporte](02-Api-ITF#put-apisolicitudreportesidestadoreporte)). La ITF después de corregir el reporte volverá a ejecutar el punto 2 del proceso 
 * **5b.-** Si el reporte es aceptado: La CNBV actualiza el "EstadoReporte" a "ReporteAceptado" en el servidor de la ITF (PUT /api/solicitudReportes/{id}/estadoReporte)
 
 
