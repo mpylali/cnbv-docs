@@ -91,8 +91,6 @@
 
 ### Respuesta exitosa
 
-**Condición** : Si todo está bien y se registró la solicitud en el servidor de la ITF.
-
 **Código** : `201 Created`
 
 **Contenido de ejemplo**
@@ -111,8 +109,6 @@
 
 ### Respuesta de error
 
-**Condición** : Si
-
 **Código** : `401 Unauthorized`
 
 **Headers** : `{}`
@@ -120,8 +116,6 @@
 **Content** : `{}`
 
 #### Or
-
-**Condición** : Si
 
 **Código** : `403 Forbidden`
 
@@ -131,7 +125,82 @@
 
 #### Or
 
-**Condición** : Si
+**Código** : `404 Not Found`
+
+**Headers** : `{}`
+
+**Content** : `{}`
+
+---------
+## GET /api/solicitudReportes/{id}/datos
+
+**URL** : `/api/solicitudReportes/{id}/datos?page={page}&size={size}`
+
+**Método** : `GET`
+
+**Autenticación requerida** : Si
+
+**Parámetros URL** Todos los parámetros deben ser enviados.
+
+| Nombre|Tipo|Descripción|
+| :--: |:--:| :--:|
+| ```id ```| ```integer``` |Identificador de la solicitud del reporte|
+| ```page```| ```integer``` |Número de página solicitada|
+| ```size```| ```integer``` |Número de registros de una página|
+
+### Respuesta exitosa
+
+**Código** : `200 Ok`
+
+**Header de ejemplo**
+| Header | Valor |
+| :--: |:--:|
+| ```link ```| <https://itf.com/api/solicitudReportes/5349b4ddd2781d08c09890a1/datos?page=3&size=5>; rel="prev", <https://itf.com/api/solicitudReportes/5349b4ddd2781d08c09890a1/datos?page=6&size=5>; rel="next", <https://itf.com/api/solicitudReportes/5349b4ddd2781d08c09890a1/datos?page=10&size=5>; rel="last", <https://itf.com/api/solicitudReportes/5349b4ddd2781d08c09890a1/datos?page=1&size=5>; rel="first" |
+
+**Contenido de ejemplo**
+
+```json
+{
+	"solicitudReporte":{
+	  "id": "5349b4ddd2781d08c09890a1"
+	}
+	"Dato":[
+		{
+			"Concepto":"100000000000",
+			"Monto":"1000000.0",
+			"Moneda":"1"
+		},
+		{
+			"Concepto":"110000000000",
+			"Monto":"200000.0",
+			"Moneda":"1"
+		},
+		{
+			"Concepto":"110100000000",
+			"Monto":"50000.0",
+			"Moneda":"1"
+		}
+	]
+}
+```
+
+### Respuesta de error
+
+**Código** : `401 Unauthorized`
+
+**Headers** : `{}`
+
+**Content** : `{}`
+
+#### Or
+
+**Código** : `403 Forbidden`
+
+**Headers** : `{}`
+
+**Content** : `{}`
+
+#### Or
 
 **Código** : `404 Not Found`
 
@@ -139,7 +208,7 @@
 
 **Content** : `{}`
 
-## GET /api/solicitudReportes/{id}/datos
+---------
 
 ## PUT /api/solicitudReportes/{id}/estadoReporte
 **URL** : `/api/solicitudReportes/{id}/estadoReporte`
@@ -160,8 +229,6 @@
 
 ### Respuesta exitosa
 
-**Condición** : Si todo está bien y se actualizó la solicitud en el servidor de la ITF.
-
 **Código** : `200 Ok`
 
 **Contenido de ejemplo**
@@ -180,7 +247,7 @@
 
 ### Respuesta de error
 
-**Condición** : Si
+
 
 **Código** : `401 Unauthorized`
 
@@ -190,7 +257,7 @@
 
 #### Or
 
-**Condición** : Si
+
 
 **Código** : `403 Forbidden`
 
@@ -200,7 +267,7 @@
 
 #### Or
 
-**Condición** : Si
+
 
 **Código** : `404 Not Found`
 
@@ -208,4 +275,69 @@
 
 **Content** : `{}`
 
+---------
+
 ## PUT /api/solicitudReportes/{id}/tipoFlujo
+**URL** : `/api/solicitudReportes/{id}/estadoReporte`
+
+**Método** : `PUT`
+
+**Autenticación requerida** : Si
+
+**Datos de ejemplo** Todos los campos deben ser enviados.
+
+```json
+{
+  "id": "ENVIO",
+  "descripcion": "Envio del reporte por parte de la ITF",
+  "nombre": "Envio Reporte"
+}
+```
+
+### Respuesta exitosa
+
+**Código** : `200 Ok`
+
+**Contenido de ejemplo**
+
+```json
+{
+    "id": "5349b4ddd2781d08c09890a1",
+    "cadenaOriginal": "5349b4ddd2781d08c09890a1|ReporteAceptado|CAT_MINIMO|201808|Prestadero|2018-09-01|ENVIO",
+    "fechaAcuse": "2018-09-01",
+    "selloDigital": "5349b4ddd2781d08c09890a15349b4ddd2781d08c09890a15349b4ddd2781d08c09890a1",
+    "solicitudReporte":{
+        "id": "5349b4ddd2781d08c09890a1"
+    }
+}
+```
+
+### Respuesta de error
+
+
+
+**Código** : `401 Unauthorized`
+
+**Headers** : `{}`
+
+**Content** : `{}`
+
+#### Or
+
+
+
+**Código** : `403 Forbidden`
+
+**Headers** : `{}`
+
+**Content** : `{}`
+
+#### Or
+
+
+
+**Código** : `404 Not Found`
+
+**Headers** : `{}`
+
+**Content** : `{}`
