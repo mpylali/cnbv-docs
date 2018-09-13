@@ -1,4 +1,5 @@
 # API expuesta por las ITF
+
 ## POST /api/solicitudReportes
 
 **URL** : `/api/solicitudReportes`
@@ -139,6 +140,7 @@
 **Content** : `{}`
 
 ## GET /api/solicitudReportes/{id}/datos
+
 ## PUT /api/solicitudReportes/{id}/estadoReporte
 **URL** : `/api/solicitudReportes/{id}/estadoReporte`
 
@@ -205,4 +207,5 @@
 **Headers** : `{}`
 
 **Content** : `{}`
+
 ## PUT /api/solicitudReportes/{id}/tipoFlujo
